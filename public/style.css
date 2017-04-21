@@ -1,0 +1,142 @@
+/*
+* {
+    color: white;
+}
+*/
+
+body {
+    background-image: url("images/income&exp.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.clear {
+    clear: both;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+/*budget section styling*/
+
+.budget-form {
+    margin-top: 20px;
+}
+
+.form-control {
+    margin: 2px 0;
+}
+
+
+/*home styling*/
+
+.box {
+    color: #fff;
+}
+
+.box h3 {
+    font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+    bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.box2 {
+    background: #fff;
+    margin-top: 140px;
+    padding: 2px 2px 10px 2px;
+}
+
+.box2 h3 {
+    font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.link-div {
+    font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+    top: 60px;
+}
+
+
+.home-link a {
+    font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+}
+
+
+/*footer styling*/
+
+footer {
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    padding: 50px 0;
+}
+
+
+@media screen and (max-height: 500px){
+    
+    .box2 {
+        position: relative;
+        top: -100px;
+    }
+    
+    .link-div {
+        position: relative;
+        top: -80px;
+    }
+}
+
+.demo-link a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+
+/*BUDGET STYLING*/
+.budget-detail {
+    color: #fff;
+}
+
+.table {
+    background-color: #fff;
+    opacity: 0.7;
+}
+
+.budget-data {
+    color: #000;
+}
+
+.table thead {
+    color: #000;
+}
+
+
+
+
+@media screen and (max-height: 800px){
+        .box2 {
+        position: relative;
+        top: -100px;
+    }
+    
+    .link-div {
+        position: relative;
+        top: -80px;
+    }
+}
