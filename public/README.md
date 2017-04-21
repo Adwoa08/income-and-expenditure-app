@@ -1,0 +1,2 @@
+This app tracks income and expenditure on weekly basis. The user has the ability to check the details of his/her financial activities at any point in time. For the moment it can only track cash expenses.
+I am still working on it.
