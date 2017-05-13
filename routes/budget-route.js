@@ -7,7 +7,6 @@ budgetRouter.use(bodyParser.json());
 
 budgetRouter.route("/allitems")
     .get(function (req, res) {
-        console.log("success");
         ItemBought.find(function (err, savedBudget) {
             console.log(savedBudget);
             res.send(savedBudget);
@@ -57,7 +56,6 @@ budgetRouter.route("/:budgetId")
 
 budgetRouter.route("/:budgetId/items")
     .get(function (req, res) {
-        console.log(req.query);
         ItemBudget.findById(req.params.budgetId)
             .populate("itemsBought")
             .exec(function (err, budget) {

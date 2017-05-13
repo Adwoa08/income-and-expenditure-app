@@ -2,13 +2,13 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var budgetSchema = new Schema({
-    
+
     date: String,
-    
+
     income: Number,
 
     expenseBudget: Number,
-    
+
     itemsBought: [{
         type: Schema.Types.ObjectId,
         ref: "ItemBought"
@@ -20,7 +20,12 @@ var budgetSchema = new Schema({
     },
     amountRemaining: Number,
 
-    savingsBudget: Number
+    savingsBudget: Number,
+
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }
 });
 
 

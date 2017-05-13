@@ -1,14 +1,10 @@
-/*
 * {
-    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
-*/
 
 body {
-    background-image: url("images/income&exp.jpg");
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -16,15 +12,133 @@ body {
     clear: both;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+.margin {
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/*Entire views styling starts here*/
+.views-container {
+    margin-top: 90px;
+}
+/*Entire views styling ends here*/
+
+
+
+
+/*Navbar styling*/
+.navbar-fixed-top {
+    background: transparent;
+}
+.navbar-brand {
+    margin-top: 20px;
+}
+.navbar-collapse {
+    margin-top: 20px;
+}
+
+.navbar-default .navbar-toggle {
+    margin-top: 28px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+.navbar-default .navbar-toggle:hover {
+    background: transparent;
+}
+/*navbar styling ends here*/
+
+
+
+/*welcomePage styling starts here*/
+.jumbotron {
+    background: rgba(252,252,250, 0.6);
+/*    margin-top: 90px;*/
+}
+/*welcomePage styling ends here*/
+
+
+
+
+
+/*Signup and Login styling starts here*/
+.ls-container {
+    background-color: rgba(252,252,250, 0.6);
 }
 
 
-/*budget section styling*/
 
+
+
+
+
+
+/*Welcome page styling*/
+.welcome-wrapper {
+    background-image: url("images/tallfinancebuilding.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+}
+/*Welcome page styling ends here*/
+
+
+/*Home page styling starts*/
+.home-wrapper {
+    background-image: url("images/income&exp.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+}
+
+
+/*home styling*/
+.hm-content {
+    color: #F22A02;
+}
+.hm-box {
+    background-color: rgba(42,3,0, 0.6);
+    padding: 10px 0 5px 0;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: relative;
+    bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.demo-p {
+   background-color: rgba(42,3,0, 0.6);
+}
+
+
+.demo-link i a:hover {
+    color: white;
+}
+
+
+@media screen and (max-height: 500px) {
+ 
+}
+
+/*home page styling ends here*/
+
+
+
+
+/*budget section styling*/
 .budget-form {
     margin-top: 20px;
 }
@@ -34,81 +148,6 @@ body {
 }
 
 
-/*home styling*/
-
-.box {
-    color: #fff;
-}
-
-.box h3 {
-    font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    position: relative;
-    bottom: 5px;
-    letter-spacing: 2px;
-}
-
-.box2 {
-    background: #fff;
-    margin-top: 140px;
-    padding: 2px 2px 10px 2px;
-}
-
-.box2 h3 {
-    font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.link-div {
-    font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    position: relative;
-    top: 60px;
-}
-
-
-.home-link a {
-    font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-decoration: none;
-    color: #fff;
-    letter-spacing: 2px;
-    word-spacing: 2px;
-}
-
-
-/*footer styling*/
-
-footer {
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-footer p {
-    margin: 0;
-    padding: 50px 0;
-}
-
-
-@media screen and (max-height: 500px){
-    
-    .box2 {
-        position: relative;
-        top: -100px;
-    }
-    
-    .link-div {
-        position: relative;
-        top: -80px;
-    }
-}
-
-.demo-link a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-
-
-/*BUDGET STYLING*/
 .budget-detail {
     color: #fff;
 }
@@ -126,15 +165,11 @@ footer p {
     color: #000;
 }
 
-
-
-
-@media screen and (max-height: 800px){
-        .box2 {
+@media screen and (max-height: 800px) {
+    .box2 {
         position: relative;
         top: -100px;
     }
-    
     .link-div {
         position: relative;
         top: -80px;

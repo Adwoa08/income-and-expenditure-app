@@ -1,0 +1,59 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="#/">Sika</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/#/home">Home</a></li>
+                <li><a href="/#/support">Support</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-hide="userService.isAuthenticated()"><a href="#/login">Login</a></li>
+                <li ng-hide="userService.isAuthenticated()"><a href="#/signup">Signup</a></li>
+                <li ng-show="userService.isAuthenticated()"><a href="#/calendar">calendar</a></li>
+                <li ng-show="userService.isAuthenticated()"><a href="/#/budget">Budget</a></li>
+                <li ng-show="userService.isAuthenticated()"><a href="/#/summary">Summary</a></li>
+                <li ng-show="userService.isAuthenticated()"><a href="#/logout">Logout</a></li>
+                <li ng-show="userService.isAuthenticated()"><a href="#/profile">Profile</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="#/welcome">Terry</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav my-links">
+                <li class="active"><a href="#/home">Home </a></li>
+                <li><a href="#/about">About</a></li>
+                <li><a href="#/portfolio">Portfolio</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="navbar-li"><a href="https://www.linkedin.com/in/terryntow/" target="_blank"><i class="fa fa-linkedin-square navbar-media-icons" aria-hidden="true"></i></a></li>
+                <li class="navbar-li"><a href="mailto:terry.ntow@gmail.com"><i class="fa fa-envelope navbar-media-icons" aria-hidden="true"></i></a></li>
+                <li class="navbar-li"><a href="https://github.com/Adwoa08" target="_blank"><i class="fa fa-github navbar-media-icons" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+         /.navbar-collapse 
+    </div>
+     /.container-fluid 
+</nav>
+-->
