@@ -4,16 +4,11 @@ var mongoose = require("mongoose");
 var budgetRouter = require("./routes/budget-route");
 var path = require("path");
 var app = express();
-
+var config = require("./config");
 var port = 8000;
 
 
 app.use(bodyParser.json());
-
-
-mongoose.connect("mongodb://localhost/income-expense-app", function(err){
-    console.log("I am connected to mongodb");
-});
 
 
 
@@ -21,6 +16,12 @@ app.use("/budget", budgetRouter);
 
 
 app.use(express.static(path.join(__dirname, "public")));
+
+
+
+mongoose.connect(config.database, function(err){
+    console.log("I am connected to mongodb");
+});
 
 
 app.listen(port, function(){
