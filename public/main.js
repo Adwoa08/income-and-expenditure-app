@@ -1,32 +1,43 @@
-var app = angular.module("budgetApp", ["ngRoute"]);
+var app = angular.module("budgetApp", ["ngRoute", "budgetApp.Auth"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
     $routeProvider
+        .when("/", {
+            templateUrl:"/components/welcome/welcome.html"
+        })
         .when("/home", {
-            templateUrl: "/home/home.html",
+            templateUrl: "/components/home/home.html",
             controller: "homeCtrl"
         })
         .when("/budget", {
-            templateUrl: "/budgets/budget.html",
+            templateUrl: "/components/budget/budget.html",
             controller: "budgetCtrl"
         })
         .when("/expenses", {
-            templateUrl: "/expenses/expenses.html",
+            templateUrl: "/components/expenses/expenses.html",
             controller: "expensesCtrl"
         })
         .when("/summary", {
-            templateUrl: "/summary/summary.html",
+            templateUrl: "/components/summary/summary.html",
             controller: "summaryCtrl"
+        })
+        .when("/profile", {
+            templateUrl: "components/profile/profile.html",
+            controller: "profileController"
+        })
+        .when("/forgot", {
+            templateUrl: "components/auth/forgot/forgot.html",
+            controller: "forgotPasswordController"
         })
 
         .otherwise({
-            redirectTo: "/home"
+            redirectTo: "/"
         })
 }]);
 
-app.service("detailService", function () {
 
-    if (!localStorage.budgetId){
+app.service("detailService", function () {
+    if (!localStorage.budgetId) {
         this.budgetId = "";
     } else {
         this.budgetId = localStorage.budgetId;

@@ -10,8 +10,6 @@
 
     <title>Budget App</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!--    font awesome-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -47,9 +45,6 @@
 
 
     <ng-view></ng-view>
-
-
-
     <!--Angular CDN-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
 
@@ -58,26 +53,34 @@
 
     <!-- main js-->
     <script src="main.js"></script>
-
-    <!--home js-->
-    <script src="home/home.js"></script>
-
-    <!--budget js-->
-    <script src="budgets/budget.js"></script>
-
-    <!-- home js-->
-    <script src="expenses/expenses.js"></script>
-
-    <!--learn js-->
-    <script src="summary/summary.js"></script>
-
-
-    <!--httpServices js -->
-    <script src="httpService/httpCalls.js"></script>
+    <script src="components/home/home.js"></script>
+    <script src="components/support/support.js"></script>
 
 
 
-    <script src="directives/navbar/navbar.js"></script>
+    <!--loggedIn user services scripts-->
+    <script src="components/budget/budget.js"></script>
+    <script src="components/expenses/expenses.js"></script>
+    <script src="components/summary/summary.js"></script>
+
+
+    <!--App mainServices  scripts-->
+    <script src="components/mainServices/httpCalls.js"></script>
+    <script src="components/directives/navbar/navbar.js"></script>
+
+
+    <!-- Auth -->
+    <script src="components/auth/auth.js"></script>
+    <script src="components/auth/authServices/tokenService.js"></script>
+    <script src="components/auth/authServices/userService.js"></script>
+    <script src="components/auth/login/login.js"></script>
+    <script src="components/auth/signup/signup.js"></script>
+    <script src="components/auth/authServices/authInterceptor.js"></script>
+    <script src="components/auth/logout/logout.js"></script>
+    <script src="components/profile/profile.js"></script>
+    <script src="components/auth/forgot/forgot.js"></script>
+    <script src="components/auth/reset/reset.js"></script>
+
 
 
 </body>
