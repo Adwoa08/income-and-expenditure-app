@@ -1,84 +1,101 @@
 var app = angular.module("budgetApp");
 
-app.service("httpService", ["$http", function($http){
-  
+app.service("httpService", ["$http", function ($http) {
+
     var self = this;
-    
+
     //-----------------READ-------------------
-    this.getWeeklyBudget = function(){
-        return $http.get("/budget").then(function(response){
-            return response.data;
-        })
-        
-    }
-    
-    
-    
-//    EXPENSES FOR A BUDGET
-    this.getExpensesForBudget = function(id){
-        return $http.get("/budget/" + id + "/items").then(function(response){
-            return response.data;
-        })
-        
-    }
-    
-    
-    
-    //----------------CREATE------------------
-    this.postBudget = function(budget){
-        
-        return $http.post("/budget", budget).then(function(response){
-            return self.addedBudget = response.data;
-        })
-        
-    }
-    
-    //--------------EDIT-------------------------
-    
-    this.editBudget = function(budget){
-        return $http.put("/budget/" + budget._id, budget).then(function(response){
-            return response.data;
-        });
-        
-    }
-    
-    
-    //----------------------EXPENSES SECTION---------
-    this.getAllExpenses = function(budget){
-        return $http.get("/budget/allitems").then(function(response){
-            console.log(response.data);
-            return response.data;
-        })
-    }
-    
-    
-    this.savePurchases = function(itemsBought, budget){
-                return $http.post("/budget/" + budget + "/items", itemsBought).then(function(response){
-            return response.data;
+    this.getWeeklyBudget = function () {
+        return $http.get("/api/budget").then(function (response) {
+            return response;
         });
     }
     
-    this.deleteExpense = function(id){
-        return $http.delete("/budget/items/" + id).then(function(response){
-            return response.data;
-        })
+    this.getABudget = function(budget){
+        return $http.get("/api/budget/" + budget).then(function(response){
+            return response;
+        });
     }
     
-    this.editExpenses = function(expense){
-        return $http.put("/budget/items/" + expense._id, expense).then(function(response){
-            return response.data;
-        })
-    }
     
 
-    
-//    SUMMARY SECTION
-    this.getExpensesForBudget = function(id){
-        
-        return $http.get("/budget/" + id + "/items?key=price").then(function(response){
-            return response.data;
-            console.log(response.data);
+    //----------------CREATE------------------
+    this.postBudget = function (budget) {
+        return $http.post("/api/budget", budget).then(function (response) {
+            return self.addedBudget = response;
         })
-        
     }
+
+    //--------------EDIT-------------------------
+
+    this.editBudget = function (budgetId, budget) {
+        return $http.put("/api/budget/" + budgetId, budget).then(function (response) {
+            return response;
+        });
+
+    }
+
+
+        //--------------DELETE-------------------------
+    this.deleteBudget = function(budgetId){
+        return $http.delete("/api/budget/" + budgetId)
+    }
+
+
+    
+    
+    
+
+
+    //----------EXPENSES FOR A BUDGET-------------------------
+    this.getBudgetExpenses = function (budgetId) {
+        return $http.get("/api/budget/" + budgetId + "/items").then(function (response) {
+            return response;
+        });
+    }
+
+
+    //----------------------EXPENSES SECTION---------
+    this.getBudgetExpense = function (budgetId, itemId) {
+        return $http.get("/api/budget/" + budgetId + "/items/" + itemId).then(function (response) {
+            return response;
+        })
+    }
+    
+    
+
+    //----------------------EXPENSES SECTION---------
+    this.savePurchase = function (budgetId, item) {
+        return $http.post("/api/budget/" + budgetId + "/items", item).then(function (response) {
+            return response;
+        });
+    }
+
+    this.deleteExpense = function (budgetId, itemId) {
+        return $http.delete("/api/budget/" + budgetId + "/items/" + itemId).then(function (response) {
+            return response.data;
+        })
+    }
+
+    this.editExpenses = function (budgetId, itemId, expense) {
+        return $http.put("/api/budget/" + budgetId + "/items/" + itemId, expense).then(function (response) {
+            return response;
+        })
+    }
+
+
+    
+    
+    
+    
+
+    //    SUMMARY SECTION
+    //    this.getExpensesForBudget = function(id){
+    //        
+    //        return $http.get("/api/budget/" + id + "/items?key=price").then(function(response){
+    //            return response;
+    //            console.log(response);
+    //        })
+    //        
+    //    }
 }])

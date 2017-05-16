@@ -20,22 +20,27 @@ body {
     text-align: center;
 }
 
+
 /*Entire views styling starts here*/
+
 .views-container {
     margin-top: 90px;
 }
+
+
 /*Entire views styling ends here*/
 
 
-
-
 /*Navbar styling*/
+
 .navbar-fixed-top {
     background: transparent;
 }
+
 .navbar-brand {
     margin-top: 20px;
 }
+
 .navbar-collapse {
     margin-top: 20px;
 }
@@ -45,7 +50,7 @@ body {
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: white;
+    background-color: #7D5E5E;
 }
 
 .navbar-default .navbar-toggle:hover {
@@ -55,30 +60,24 @@ body {
 
 
 
+
 /*welcomePage styling starts here*/
 .jumbotron {
-    background: rgba(252,252,250, 0.6);
-/*    margin-top: 90px;*/
+    background: rgba(252, 252, 250, 0.6);
 }
 /*welcomePage styling ends here*/
 
 
 
 
-
 /*Signup and Login styling starts here*/
 .ls-container {
-    background-color: rgba(252,252,250, 0.6);
+    background-color: rgba(252, 252, 250, 0.6);
 }
 
 
-
-
-
-
-
-
 /*Welcome page styling*/
+
 .welcome-wrapper {
     background-image: url("images/tallfinancebuilding.jpg");
     background-size: cover;
@@ -87,12 +86,15 @@ body {
     width: 100%;
     position: absolute;
 }
+
+
 /*Welcome page styling ends here*/
 
 
 /*Home page styling starts*/
+
 .home-wrapper {
-    background-image: url("images/income&exp.jpg");
+/*    background-image: url("images/income&exp.jpg");*/
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
@@ -103,11 +105,13 @@ body {
 
 
 /*home styling*/
+
 .hm-content {
     color: #F22A02;
 }
+
 .hm-box {
-    background-color: rgba(42,3,0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 0 5px 0;
     margin-bottom: 10px;
 }
@@ -120,25 +124,30 @@ h1 {
 }
 
 .demo-p {
-   background-color: rgba(42,3,0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
 }
-
 
 .demo-link i a:hover {
     color: white;
 }
 
+@media screen and (max-height: 500px) {}
 
-@media screen and (max-height: 500px) {
- 
-}
 
 /*home page styling ends here*/
 
 
-
-
 /*budget section styling*/
+
+.budget-wrapper {
+    background-image: url("images/tallfinancebuilding.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+}
+
 .budget-form {
     margin-top: 20px;
 }
@@ -146,7 +155,6 @@ h1 {
 .form-control {
     margin: 2px 0;
 }
-
 
 .budget-detail {
     color: #fff;
@@ -174,4 +182,13 @@ h1 {
         position: relative;
         top: -80px;
     }
+}
+
+
+/*Profile Styling*/
+.profile-wrapper {
+    background-image: url("http://www.desktopwallpaperhd.net/wallpapers/2/1/collection-yarkij-wallpaper-koktejl-pictures-photo-24225.jpg");
+    height: 40vh;
+    width: 100%;
+    position: absolute;
 }

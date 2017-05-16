@@ -1,101 +1,51 @@
 var express = require("express");
-var budgetRouter = express.Router();
-var ItemBudget = require("../model/budget-schema");
-var ItemBought = require("../model/itemsbought-schema");
+var BudgetRouter = express.Router();
+var Budget = require("../model/budget-schema");
+var Items = require("../model/itemsbought-schema");
 var bodyParser = require("body-parser");
-budgetRouter.use(bodyParser.json());
+//BudgetRouter.use(bodyParser.json());
 
-budgetRouter.route("/allitems")
-    .get(function (req, res) {
-        ItemBought.find(function (err, savedBudget) {
-            console.log(savedBudget);
+
+//Buget routes
+BudgetRouter.route("/")
+      .get(function (req, res) {
+        Budget.find({user: req.user._id},function (err, savedBudget) {
             res.send(savedBudget);
-        })
+        });
     })
+    .post(function(req, res){
+        var newBudget = new Budget(req.body);
+        newBudget.user = req.user;
+        newBudget.save(function(err, budget){
+            if(err) res.status(500).send(err);
+            res.status(201).send(budget);
+        });
+});
 
 
-budgetRouter.route("/")
+BudgetRouter.route("/:budgetId")
     .get(function (req, res) {
-        ItemBudget.find(function (err, savedBudget) {
-            res.send(savedBudget);
-        })
-    })
-    .post(function (req, res) {
-        var budgetedItemToBeSaved = new ItemBudget(req.body);
-        budgetedItemToBeSaved.save(function (err, budgetItemToBeSaved) {
-            res.send(budgetItemToBeSaved);
-        })
-    })
-
-
-
-budgetRouter.route("/:budgetId")
-    .get(function (req, res) {
-        ItemBudget.findOne({
-            _id: req.params.budgetId
-        }, function (err, oneBudget) {
+        Budget.findOne({_id: req.params.budgetId, user: req.user._id}, function (err, oneBudget) {
+            if(err) res.status(500).send(err);
             res.send(oneBudget)
         })
     })
     .delete(function (req, res) {
-        ItemBudget.findByIdAndRemove(req.params.budgetId, function (err, budgetItemToBeDeleted) {
-            budgetItemToBeDeleted.remove(function (err) {
-                res.send("Your item has been removed.");
-            })
+        Items.remove({budget: req.params.budgetId}, function(err, items){
+          Budget.findOneAndRemove({_id: req.params.budgetId, user: req.user._id}, function (err, deletedBudget) {
+            if(err) res.status(500).send(err);
+            return res.send(deletedBudget);
+            })  
         })
+        
     })
     .put(function (req, res) {
-        ItemBudget.findByIdAndUpdate(req.params.budgetId, req.body, {
-            new: true
-        }, function (err, budgetUpdate) {
-            res.send(budgetUpdate);
+        Budget.findOneAndUpdate({_id: req.params.budgetId, user: req.user._id}, req.body, {new: true}, function (err, budgetUpdate) {
+            if(err) res.status(500).send(err);
+            return res.send(budgetUpdate);
         });
     });
 
 
 
-budgetRouter.route("/:budgetId/items")
-    .get(function (req, res) {
-        ItemBudget.findById(req.params.budgetId)
-            .populate("itemsBought")
-            .exec(function (err, budget) {
-                if (req.query.price) {
-                    var filtered = budget.itemsBought.filter(function (item, index) {
-                        return item.price === parseInt(req.query.price);
-                    });
-                    return res.send(filtered);
-                }
-                res.send(budget.itemsBought);
-            });
-    })
-    .post(function (req, res) {
-        var newItemBought = new ItemBought(req.body);
-        newItemBought.save(function (err) {
-            ItemBudget.findById(req.params.budgetId, function (err, oneBudget) {
-                oneBudget.itemsBought.push(newItemBought._id);
-                oneBudget.amountSpent += newItemBought.price;
-                oneBudget.save(function (err) {
-                    res.send(newItemBought);
-                });
-            });
-        });
-    })
-
-
-budgetRouter.route("/items/:itemId")
-    .delete(function (req, res) {
-        ItemBought.findByIdAndRemove(req.params.itemId, function (err, deletedItem) {
-            if (err) console.log(err)
-            res.send(deletedItem);
-
-        });
-    })
-    .put(function (req, res) {
-        ItemBought.findByIdAndUpdate(req.params.itemId, req.body, {new: true}, function (err, updatedItem) {
-                if (err) console.log(err);
-                res.send(updatedItem);
-            })
-    })
-
-
-module.exports = budgetRouter;
+module.exports = BudgetRouter;

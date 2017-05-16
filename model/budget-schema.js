@@ -9,11 +9,6 @@ var budgetSchema = new Schema({
 
     expenseBudget: Number,
 
-    itemsBought: [{
-        type: Schema.Types.ObjectId,
-        ref: "ItemBought"
-    }],
-
     amountSpent: {
         type: Number,
         default: 0
@@ -21,16 +16,15 @@ var budgetSchema = new Schema({
     amountRemaining: Number,
 
     savingsBudget: Number,
-
     user: {
         type: Schema.Types.ObjectId,
         ref: "User"
     }
-});
+}, {timestamps: true});
 
 
 
-var Itembudget = mongoose.model("Itembudget", budgetSchema);
+var Budget = mongoose.model("Budget", budgetSchema);
 
 
-module.exports = Itembudget;
+module.exports = Budget;
