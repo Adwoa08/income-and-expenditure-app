@@ -25,6 +25,8 @@ var userSchema = new Schema({
         type: String,
         default: "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png"
     },
+    phoneNumber: String,
+    
     admin: {
         type: Boolean,
         default: false

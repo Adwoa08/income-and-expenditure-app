@@ -1,14 +1,15 @@
 <div class="profile-wrapper">
     <div class="views-container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h1>{{ userService.currentUser.username }}</h1>
+            <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4">
                 <img ng-src="{{userService.currentUser.image}}" alt="profile avator" class="img-responsive">
+                <h1>{{ userService.currentUser.username }}</h1>
                 <hr>
+                <!--password change section starts here-->
                 <div class="row">
                     <div class="col-md-4">
-                        <h3>Change Password</h3>
-                        <form>
+                        <button class="btn btn-warning" ng-click="editing = !editing">Change Password</button>
+                        <form ng-show="editing">
                             <div class="form-group">
                                 <label for="newPassword">New Password</label>
                                 <input type="password" id="newPassword" class="form-control" ng-model="passwords.newPassword">
@@ -17,10 +18,12 @@
                                 <label for="newPasswordRepeat">Repeat New Password</label>
                                 <input type="password" id="newPasswordRepeat" class="form-control" ng-model="passwords.newPasswordRepeat">
                             </div>
-                            <button class="btn btn-primary" ng-click="changePassword(passwords)">Change Password</button>
+                            <button class="btn btn-success" ng-click="changePassword(passwords)">Change Password</button>
                         </form>
+                        <hr/>
                     </div>
                 </div>
+                <!--password change section ends here-->
             </div>
         </div>
     </div>

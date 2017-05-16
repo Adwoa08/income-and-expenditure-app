@@ -5,24 +5,23 @@ app.controller("budgetCtrl", ["$scope", "httpService", "detailService", "$locati
     $scope.weeklyPost = [];
 
     //-----------------READ------------------- 
-    httpService.getWeeklyBudget().then(function (data) {
-        $scope.weeklyPost = data;
+    httpService.getWeeklyBudget().then(function (response) {
+        console.log(response.data);
+        $scope.weeklyPost = response.data;
     })
 
 
 
     //----------------CREATE------------------
     $scope.submitBudget = function (budget) {
-        httpService.postBudget(budget).then(function(addedBudget){
-            $scope.weeklyPost.push(addedBudget);
+        httpService.postBudget(budget).then(function(response){
+            $scope.weeklyPost.push(response.data);
             console.log($scope.weeklyPost);
-            console.log($scope.addedBudget);
         })
-
         $scope.budget = {};
-
     }
 
+    
     
 $scope.savePurchases = function(weeksBudget, item){
     weeksBudget.itemsBought.push(item);
