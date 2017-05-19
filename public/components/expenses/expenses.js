@@ -28,6 +28,8 @@ app.controller("expensesCtrl", ["$scope", "httpService","detailService", functio
             $scope.weeklyPost.push(response.data);
             console.log(response.data);
         })
+        
+        $scope.item = {};
     }
     
     

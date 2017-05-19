@@ -1,59 +1,79 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-            <a class="navbar-brand" href="#/">Sika</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li ng-hide="userService.isAuthenticated()"><a href="/#/home">Home</a></li>
-                <li><a href="/#/support">Support</a></li>
+            <div ng-show="userService.isAuthenticated()">
+                <button type="button" class="pull-left navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span id="uno" class="icon-bar"></span>
+                    <span id="dos" class="icon-bar"></span>
+                    <span id="tres" class="icon-bar"></span> 
+                </button>
+            </div>
+            <!--hidden when the user logs in-->
+            <a ng-hide="userService.isAuthenticated()" href="#/" class="navbar-brand">Sika</a>
+
+            <!--shows when the user logs in-->
+            <a ng-show="userService.isAuthenticated()" href="#/budget" class="navbar-brand">Sika</a>
+            <div class="brand">
+                <a id="lg-in" ng-hide="userService.isAuthenticated()" class="navbar-brand" href="#/login">Login</a>
+                <a id="sn-up" ng-hide="userService.isAuthenticated()" href="#/signup"><button class="btn btn-warning">Signup</button></a>
+            </div>
+            <ul ng-show="userService.isAuthenticated()" class="nav navbar-nav account pull-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <strong>{{ userService.currentUser.username }}</strong>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul id="user" class="dropdown-menu">
+                        <li>
+                            <div class="navbar-login">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <p class="text-center">
+                                            <span class="glyphicon glyphicon-user icon-size"></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <p class="text-left"><strong>{{ userService.currentUser.username }}</strong></p>
+                                        <p class="text-left small">{{ userService.currentUser.email }}</p>
+                                        <p ng-show="userService.isAuthenticated()" class="text-left">
+                                            <a href="#/profile" class="btn btn-primary btn-block btn-sm">Profile</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!--
+                        <li class="divider navbar-login-session-bg"></li>
+                        <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Messages <span class="badge pull-right"> 42 </span></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Favourites<span class="glyphicon glyphicon-heart pull-right"></span></a></li>
+                        <li class="divider"></li>
+-->
+                        <li ng-show="userService.isAuthenticated()"><a href="#/logout">Logout</a></li>
+                    </ul>
+                </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li ng-hide="userService.isAuthenticated()"><a href="#/login">Login</a></li>
-                <li ng-hide="userService.isAuthenticated()"><a href="#/signup"><button class="btn btn-warning">Signup</button></a></li>
-                <li ng-show="userService.isAuthenticated()"><a href="#/calendar">calendar</a></li>
+        </div>
+
+        <div class="collapse navbar-collapse sm-screen">
+            <ul class="nav navbar-nav">
+                <!--
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+-->
+                <!--                <li ng-show="userService.isAuthenticated()"><a href="#/calendar">calendar</a></li>-->
                 <li ng-show="userService.isAuthenticated()"><a href="/#/budget">Budget</a></li>
                 <li ng-show="userService.isAuthenticated()"><a href="/#/summary">Summary</a></li>
-                <li ng-show="userService.isAuthenticated()"><a href="#/profile"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
-                <li ng-show="userService.isAuthenticated()"><a href="#/logout">Logout</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!--
-
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-            <a class="navbar-brand" href="#/welcome">Terry</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav my-links">
-                <li class="active"><a href="#/home">Home </a></li>
-                <li><a href="#/about">About</a></li>
-                <li><a href="#/portfolio">Portfolio</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="navbar-li"><a href="https://www.linkedin.com/in/terryntow/" target="_blank"><i class="fa fa-linkedin-square navbar-media-icons" aria-hidden="true"></i></a></li>
-                <li class="navbar-li"><a href="mailto:terry.ntow@gmail.com"><i class="fa fa-envelope navbar-media-icons" aria-hidden="true"></i></a></li>
-                <li class="navbar-li"><a href="https://github.com/Adwoa08" target="_blank"><i class="fa fa-github navbar-media-icons" aria-hidden="true"></i></a></li>
+                <li id="lg-in-sm" ng-hide="userService.isAuthenticated()"><a href="#/login">Login</a></li>
+                <li id="sn-up-sm" ng-hide="userService.isAuthenticated()"><a href="#/signup"><button class="btn btn-warning">Signup</button></a></li>
             </ul>
         </div>
-         /.navbar-collapse 
     </div>
-     /.container-fluid 
-</nav>
--->
+</div>

@@ -32,45 +32,100 @@ body {
 
 
 /*Navbar styling*/
-
-.navbar-fixed-top {
-    background: transparent;
+.account {
+    margin-right: 20px;
 }
 
-.navbar-brand {
-    margin-top: 20px;
+ .navbar-default .navbar-toggle {
+    margin-left: 15px;
+     border: none;
+    }
+
+
+@media  screen and  (max-width: 768px){
+    
+    .navbar-default .brand {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .navbar-default .brand #sn-up{
+        margin: 7px 7px 0 0;
+    }
+    
+    
+     .sm-screen #sn-up-sm {
+        display: none;
+    }
+    
+    
+     .sm-screen #lg-in-sm {
+        display: none;
+    }
+    
 }
 
-.navbar-collapse {
-    margin-top: 20px;
+
+
+
+@media  screen and  (min-width: 769px){
+    
+    .navbar-default .brand #lg-in {
+        display: none;
+    }
+    
+    .navbar-default .brand #sn-up{
+        display: none;
+    }
+    
+    
+    .sm-screen #sn-up-sm {
+        margin-top: -4px;
+    }
 }
 
-.navbar-default .navbar-toggle {
-    margin-top: 28px;
-}
 
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #7D5E5E;
-}
+
 
 .navbar-default .navbar-toggle:hover {
-    background: transparent;
+    background-color: transparent;
 }
+
+#uno, #dos, #tres {
+     transition: all 0.5s;
+}
+
+.navbar-default .navbar-toggle:onclick #dos {
+    opacity: 0;
+}
+
+.navbar-default .navbar-toggle:onclick #uno {
+    transform: rotate(45deg) translate(4px, 4px)
+}
+
+
+.navbar-default .navbar-toggle:onclick #tres {
+    transform: rotate(-45deg) translate(4px, -5px)
+}
+
 /*navbar styling ends here*/
 
 
 
 
+
 /*welcomePage styling starts here*/
+
 .jumbotron {
     background: rgba(252, 252, 250, 0.6);
 }
+
+
 /*welcomePage styling ends here*/
 
 
-
-
 /*Signup and Login styling starts here*/
+
 .ls-container {
     background-color: rgba(252, 252, 250, 0.6);
 }
@@ -94,7 +149,7 @@ body {
 /*Home page styling starts*/
 
 .home-wrapper {
-/*    background-image: url("images/income&exp.jpg");*/
+    /*    background-image: url("images/income&exp.jpg");*/
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
@@ -130,8 +185,6 @@ h1 {
 .demo-link i a:hover {
     color: white;
 }
-
-@media screen and (max-height: 500px) {}
 
 
 /*home page styling ends here*/
@@ -186,8 +239,10 @@ h1 {
 
 
 /*Profile Styling*/
+
 .profile-wrapper {
     background-image: url("http://www.desktopwallpaperhd.net/wallpapers/2/1/collection-yarkij-wallpaper-koktejl-pictures-photo-24225.jpg");
+    background-size: cover;
     height: 40vh;
     width: 100%;
     position: absolute;
