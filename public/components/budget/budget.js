@@ -6,7 +6,6 @@ app.controller("budgetCtrl", ["$scope", "httpService", "detailService", "$locati
 
     //-----------------READ------------------- 
     httpService.getWeeklyBudget().then(function (response) {
-        console.log(response.data);
         $scope.weeklyPost = response.data;
     })
 

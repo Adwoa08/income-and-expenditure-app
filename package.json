@@ -14,6 +14,8 @@
     "mongoose": "^4.9.4",
     "morgan": "^1.8.1",
     "multer": "^1.3.0",
+    "ng-file-upload": "^12.2.13",
+    "ngstorage": "^0.3.11",
     "twilio": "^3.0.0"
   },
   "devDependencies": {},

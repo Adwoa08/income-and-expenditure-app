@@ -1,4 +1,4 @@
-var app = angular.module("budgetApp", ["ngRoute", "budgetApp.Auth"]);
+var app = angular.module("budgetApp", ["ngRoute", "budgetApp.Auth", "ngFileUpload", "ngStorage"]);
 
 app.config(["$routeProvider", function ($routeProvider) {
     $routeProvider
