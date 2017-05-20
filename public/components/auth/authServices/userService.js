@@ -1,34 +1,28 @@
 var app = angular.module("budgetApp.Auth");
 
-app.service("userService", ["$http", "$location", "tokenService", function ($http, $location, tokenService) {
+app.service("userService", ["$http", "$location", "$localStorage", "tokenService", function ($http, $location, $localStorage, tokenService) {
+    
     
     var self = this;
-    this.currentUser = {};
-    
-    
-//    Signup function
+    this.currentUser = $localStorage.user || {};
+
     this.signup = function (user) {
         return $http.post("/auth/signup", user);
     };
 
-    
-    
-    
-//Login function
     this.login = function (user) {
         return $http.post("/auth/login", user).then(function (response) {
-            tokenService.setToken(response.data.token);
             self.currentUser = response.data.user;
+            $localStorage.user = response.data.user;
+            tokenService.setToken(response.data.token);
             return response;
         });
     };
-
     
-    
-    
-//Logout function
     this.logout = function () {
         tokenService.removeToken();
+        delete $localStorage.user;
+        alert("You have successfully logged out!");
         $location.path("/");
     };
 

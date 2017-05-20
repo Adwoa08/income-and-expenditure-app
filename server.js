@@ -9,6 +9,8 @@ var config = require("./config");
 var port = 8000;
 var expressJwt = require("express-jwt");
 var morgan = require("morgan");
+var userRouter = require("./routes/userRoute");
+
 
 var twilio = require("twilio");
 var accountSid = config.smsKey; // Your Account SID from www.twilio.com/console
@@ -40,9 +42,11 @@ app.use("/auth", require("./routes/authRoutes"));
 app.use("/api", expressJwt({secret: config.secret}));
 app.use("/api/budget", budgetRouter);
 app.use("/api/budget", itemsRouter);
+app.use("/api/user", userRouter);
 
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "uploads", "images")));
 
 
 

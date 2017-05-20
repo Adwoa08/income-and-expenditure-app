@@ -12,10 +12,10 @@
             <a ng-hide="userService.isAuthenticated()" href="#/" class="navbar-brand">Sika</a>
 
             <!--shows when the user logs in-->
-            <a ng-show="userService.isAuthenticated()" href="#/budget" class="navbar-brand">Sika</a>
+            <a ng-show="userService.isAuthenticated()" href="#/home" class="navbar-brand">Sika</a>
             <div class="brand">
-                <a id="lg-in" ng-hide="userService.isAuthenticated()" class="navbar-brand" href="#/login">Login</a>
-                <a id="sn-up" ng-hide="userService.isAuthenticated()" href="#/signup"><button class="btn btn-warning">Signup</button></a>
+                <a id="lg-in" ng-hide="userService.isAuthenticated()" class="navbar-brand" href="#/login">Log In</a>
+                <a id="sn-up" ng-hide="userService.isAuthenticated()" href="#/signup"><button class="btn btn-warning">Sign Up</button></a>
             </div>
 
 
@@ -49,7 +49,7 @@
                             </div>
                         </li>
                         <!--
-                        <li class="divider navbar-login-session-bg"></li>
+                        <li class="divider navbar-log In-session-bg"></li>
                         <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
                         <li class="divider"></li>
                         <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
@@ -104,7 +104,7 @@
                             </div>
                         </li>
                         <!--
-                        <li class="divider navbar-login-session-bg"></li>
+                        <li class="divider navbar-log In-session-bg"></li>
                         <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
                         <li class="divider"></li>
                         <li><a href="#">User stats <span class="glyphicon glyphicon-stats pull-right"></span></a></li>
@@ -125,8 +125,8 @@
 
 
             <ul class="nav navbar-nav navbar-right">
-                <li id="lg-in-sm" ng-hide="userService.isAuthenticated()"><a href="#/login">Login</a></li>
-                <li id="sn-up-sm" ng-hide="userService.isAuthenticated()"><a href="#/signup"><button class="btn btn-warning">Signup</button></a></li>
+                <li id="lg-in-sm" ng-hide="userService.isAuthenticated()"><a href="#/login">Log In</a></li>
+                <li id="sn-up-sm" ng-hide="userService.isAuthenticated()"><a href="#/signup"><button class="btn btn-warning">Sign Up</button></a></li>
             </ul>
         </div>
     </div>

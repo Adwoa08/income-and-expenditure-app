@@ -98,4 +98,34 @@ app.service("httpService", ["$http", function ($http) {
     //        })
     //        
     //    }
+    
+    
+    
+//USER CRUD REQUEST
+//        this.getUserInfo = function () {
+//            return $http.get('/api/user/profile').then(function (response) {
+//                return response.data
+//            });
+//        }
+
+        
+        this.getCurrentUser = function(){
+            return $http.get('/api/user/profile').then(function(response){
+                return response.data;
+            });
+        }
+        
+        
+        
+        this.editUser = function(user){
+            return $http.put('/users/' + user._id, user).then(function(response){
+                return response.data
+            })
+        }
+        this.deleteUser = function(user){
+            return $http.delete('/users/' + user._id).then(function(response){
+                return "User Deleted!"
+            })
+        }  
+    
 }])
