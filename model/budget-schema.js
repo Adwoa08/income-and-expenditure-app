@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var budgetSchema = new Schema({
 
-    date: String,
+    month: String,
 
     income: Number,
 
@@ -13,9 +13,10 @@ var budgetSchema = new Schema({
         type: Number,
         default: 0
     },
-    amountRemaining: Number,
+    actualSavings: Number,
 
-    savingsBudget: Number,
+    savings: Number,
+    
     user: {
         type: Schema.Types.ObjectId,
         ref: "User"
