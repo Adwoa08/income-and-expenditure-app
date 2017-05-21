@@ -12,7 +12,7 @@
             <a ng-hide="userService.isAuthenticated()" href="#/" class="navbar-brand">Sika</a>
 
             <!--shows when the user logs in-->
-            <a ng-show="userService.isAuthenticated()" href="#/home" class="navbar-brand">Sika</a>
+            <a ng-show="userService.isAuthenticated()" href="#/home" class="navbar-brand" id="hm-nav-sika">Sika</a>
             <div class="brand">
                 <a id="lg-in" ng-hide="userService.isAuthenticated()" class="navbar-brand" href="#/login">Log In</a>
                 <a id="sn-up" ng-hide="userService.isAuthenticated()" href="#/signup"><button class="btn btn-warning">Sign Up</button></a>
@@ -59,7 +59,7 @@
                         <li><a href="#">Favourites<span class="glyphicon glyphicon-heart pull-right"></span></a></li>
                         <li class="divider"></li>
 -->
-                        <li ng-show="userService.isAuthenticated()"><a href="#/logout">Logout</a></li>
+                        <li ng-show="userService.isAuthenticated()"><a href="#/logout">Log Out</a></li>
                     </ul>
                 </li>
             </ul>
@@ -114,7 +114,7 @@
                         <li><a href="#">Favourites<span class="glyphicon glyphicon-heart pull-right"></span></a></li>
                         <li class="divider"></li>
 -->
-                        <li ng-show="userService.isAuthenticated()"><a href="#/logout">Logout</a></li>
+                        <li ng-show="userService.isAuthenticated()"><a href="#/logout">Log Out</a></li>
                     </ul>
                 </li>
             </ul>
