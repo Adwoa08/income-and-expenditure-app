@@ -5,9 +5,20 @@ var budgetSchema = new Schema({
 
     month: String,
 
-    income: Number,
+    income: {
+        type: Number,
+        default: 0 
+    },
+    
+    actualIncome: {
+        type: Number,
+        default: 0 
+    },
 
-    expenseBudget: Number,
+    expenseBudget: {
+        type: Number,
+        default: 0 
+    },
 
     amountSpent: {
         type: Number,

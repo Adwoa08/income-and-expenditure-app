@@ -16,7 +16,7 @@
                     <th>Action</th>
                     <th></th>
                 </thead>
-                <tbody ng-repeat="expense in weeklyPost track by $index">
+                <tbody ng-repeat="expense in dailyPurchases track by $index">
                     <tr ng-hide="expense.editing">
                         <td>{{expense.name}}</td>
                         <td>{{expense.price | currency: "$"}}</td>
