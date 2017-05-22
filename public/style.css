@@ -195,6 +195,12 @@ h1 {
 }
 
 
+
+.profile-pic-div {
+    margin-top: 15vh;
+}
+
+
 #profile-pic-edit {
     color: black;
     background: white;
