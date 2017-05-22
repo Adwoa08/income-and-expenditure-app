@@ -1,10 +1,18 @@
 var app = angular.module("budgetApp");
 
-app.controller("summaryCtrl", ["$scope", "detailService", "httpService", function($scope, detailService, httpService){
-    
-//    httpService.getExpensesForBudget(detailService.budgetId).then(function (data) {
-//        console.log(data);
-//            $scope.totalExpenditure = data;
-//    })
-    
+app.controller("summaryCtrl", ["$scope", "detailService", "httpService", function ($scope, detailService, httpService) {
+
+
+    $scope.monthlyBudget = [];
+
+    //-----------------READ------------------- 
+    httpService.getMonthlyBudget().then(function (response) {
+        $scope.monthlyBudget = response.data;
+    })
+
+
+
+
+
+
 }]);

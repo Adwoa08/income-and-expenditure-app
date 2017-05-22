@@ -1,5 +1,39 @@
 <div class="home-wrapper">
     <div class="views-container">
-    
+
+        <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xs-offset-1 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 budget-form">
+            <button class="btn btn-warning" ng-click="hidden=!hidden">Hide</button>
+            <table class="table" ng-hide="hidden">
+                <thead ng-repeat="budget in monthlyBudget">
+                    <th class="budget-data">{{budget.month}}</th>
+                    <th>Budget</th>
+                    <th>Actual</th>
+                    <th>Discrepancy</th>
+                </thead>
+                <tbody ng-repeat="budget in monthlyBudget">
+                    <div>
+                        <tr>
+                            <td class="budget-data">Income</td>
+                            <td class="budget-data">{{budget.income | currency: "$"}}</td>
+                            <td class="budget-data">{{budget.income | currency: "$"}}</td>
+                            <td class="budget-data">{{budget.incomeDiff | currency: "$"}}</td>
+                        </tr>
+                        <tr>
+                            <td class="budget-data">Expenses</td>
+                            <td class="budget-data">{{budget.expenseBudget | currency: "$"}}</td>
+                            <td class="budget-data">{{budget.amountSpent | currency: "$"}}</td>
+                            <td class="budget-data">{{budget.expenseDiff | currency: "$"}}</td>
+                        </tr>
+                        <tr>
+                            <td class="budget-data">Savings</td>
+                            <td class="budget-data">{{budget.savings | currency: "$"}}</td>
+                            <td class="budget-data">{{budget.actualSavings | currency: "$"}}</td>
+                            <td class="budget-data">{{budget.actualSavings | currency: "$"}}</td>
+                        </tr>
+                    </div>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 </div>

@@ -5,7 +5,7 @@ app.service("httpService", ["$http", function ($http) {
     var self = this;
 
     //-----------------READ-------------------
-    this.getWeeklyBudget = function () {
+    this.getMonthlyBudget = function () {
         return $http.get("/api/budget").then(function (response) {
             return response;
         });

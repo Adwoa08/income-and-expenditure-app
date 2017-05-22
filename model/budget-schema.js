@@ -13,9 +13,15 @@ var budgetSchema = new Schema({
         type: Number,
         default: 0
     },
-    actualSavings: Number,
+    actualSavings: {
+        type: Number,
+        default: 0
+    },
 
-    savings: Number,
+    savings: {
+        type: Number,
+        default: 0
+    },
     
     user: {
         type: Schema.Types.ObjectId,
