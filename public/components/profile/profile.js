@@ -15,21 +15,19 @@ app.controller("profileController", ["$scope", "Upload", "userService", "httpSer
     
     
     httpService.getCurrentUser().then(function (user) {
-        console.log(user);
         $scope.user = user;
     });
 
-    $scope.updateProfilePic = function (file, user) {
-        upload(file, user);
+    $scope.uploadPic = function (file) {
+        upload(file);
     };
 
-    function upload(file, user) {
+    function upload(file) {
         Upload.upload({
             url: "/api/user",
             method: "PUT",
             data: {
-                file: file,
-                info: user
+                file: file
             }
         }).then(function (response) {
             $scope.user = response.data;

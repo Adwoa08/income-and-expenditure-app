@@ -2,11 +2,11 @@ var app = angular.module("budgetApp");
 
 app.controller("budgetCtrl", ["$scope", "httpService", "detailService", "$location", function ($scope, httpService, detailService, $location) {
 
-    $scope.weeklyPost = [];
+    $scope.monthlyBudget = [];
 
     //-----------------READ------------------- 
-    httpService.getWeeklyBudget().then(function (response) {
-        $scope.weeklyPost = response.data;
+    httpService.getMonthlyBudget().then(function (response) {
+        $scope.monthlyBudget = response.data;
     })
 
 
@@ -14,17 +14,17 @@ app.controller("budgetCtrl", ["$scope", "httpService", "detailService", "$locati
     //----------------CREATE------------------
     $scope.submitBudget = function (budget) {
         httpService.postBudget(budget).then(function(response){
-            $scope.weeklyPost.push(response.data);
-            console.log($scope.weeklyPost);
+            $scope.monthlyBudget.push(response.data);
+            console.log($scope.monthlyBudget);
         })
         $scope.budget = {};
     }
 
     
     
-$scope.savePurchases = function(weeksBudget, item){
-    weeksBudget.itemsBought.push(item);
-    httpService.editBudget(weeksBudget).then(function(data){
+$scope.savePurchases = function(monthBudget, item){
+    monthBudget.itemsBought.push(item);
+    httpService.editBudget(monthBudget).then(function(data){
         console.log(data);
     })
     $scope.item = {};

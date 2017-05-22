@@ -26,7 +26,7 @@
                     <th>Budget</th>
                     <th>Amount</th>
                 </thead>
-                <tbody ng-repeat="budget in weeklyPost">
+                <tbody ng-repeat="budget in monthlyBudget">
                     <div>
                         <tr>
                             <td class="budget-data">{{budget.month}}</td>
@@ -41,7 +41,7 @@
                         <tr>
                             <td class="budget-data"></td>
                             <td class="budget-data">Savings</td>
-                            <td class="budget-data">{{budget.savingsBudget | currency: "$"}}</td>
+                            <td class="budget-data">{{budget.savings | currency: "$"}}</td>
                         </tr>
                     </div>
                 </tbody>
