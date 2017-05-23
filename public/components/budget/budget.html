@@ -39,7 +39,7 @@
                             <td class="budget-data">{{budget.expenseBudget | currency: "$"}}</td>
                         </tr>
                         <tr>
-                            <td class="budget-data"></td>
+                            <td class="budget-data"><button class="btn btn-danger" type="button" ng-click="deleteBudget($index, budget._id)">Delete Budget</button></td>
                             <td class="budget-data">Savings</td>
                             <td class="budget-data">{{budget.savings | currency: "$"}}</td>
                         </tr>

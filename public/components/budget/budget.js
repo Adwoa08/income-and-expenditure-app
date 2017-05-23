@@ -23,19 +23,30 @@ app.controller("budgetCtrl", ["$scope", "httpService", "detailService", "$locati
 
     
     
-$scope.savePurchases = function(monthBudget, item){
-    monthBudget.itemsBought.push(item);
-    httpService.editBudget(monthBudget).then(function(data){
-        console.log(data);
-    })
-    $scope.item = {};
-}
+//$scope.savePurchases = function(monthBudget, item){
+//    monthBudget.itemsBought.push(item);
+//    httpService.editBudget(monthBudget).then(function(data){
+//        console.log(data);
+//    })
+//    $scope.item = {};
+//}
 
 $scope.getDetails = function(budgetId){
     detailService.budgetId = budgetId;
     localStorage.budgetId = budgetId;
     $location.path("/expenses");
 }
+
+
+
+$scope.deleteBudget = function(index, id){
+       httpService.deleteBudget(id).then(function(response){
+           $scope.monthlyBudget.splice(index, 1);
+       });
+    
+}
+
+
 
 
 

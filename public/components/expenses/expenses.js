@@ -46,9 +46,6 @@ app.controller("expensesCtrl", ["$scope", "httpService","detailService", functio
     
 
   $scope.editExpense = function(itemId, expense, index){
-      console.log(itemId);
-      console.log(expense);
-      console.log(index);
       httpService.editExpenses(detailService.budgetId, itemId, expense).then(function(response){
           $scope.dailyPurchases[index] = response.data;
       })

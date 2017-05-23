@@ -37,10 +37,11 @@ ItemRouter.route("/:budgetId/items/:itemId")
     Items.findOneAndRemove({budget: req.params.budgetId, _id: req.params.itemId}, function(err, deletedItem){
         Budget.findById(req.params.budgetId, function(err, budget){
             budget.amountSpent -= deletedItem.price;
+            budget.actualSavings += deletedItem.price;
             budget.save(function(err){
-              res.send(deletedItem);  
-            })
-        })     
+              res.send(deletedItem);
+            });
+        });     
     })
 })
 .put(function(req, res){

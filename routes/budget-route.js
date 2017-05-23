@@ -27,7 +27,7 @@ BudgetRouter.route("/:budgetId")
     .get(function (req, res) {
         Budget.findOne({_id: req.params.budgetId, user: req.user._id}, function (err, oneBudget) {
             if(err) res.status(500).send(err);
-            res.send(oneBudget)
+            res.send(oneBudget);
         })
     })
     .delete(function (req, res) {
@@ -37,7 +37,6 @@ BudgetRouter.route("/:budgetId")
             return res.send(deletedBudget);
             })  
         })
-        
     })
     .put(function (req, res) {
         Budget.findOneAndUpdate({_id: req.params.budgetId, user: req.user._id}, req.body, {new: true}, function (err, budgetUpdate) {
