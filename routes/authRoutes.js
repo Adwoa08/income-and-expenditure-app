@@ -43,9 +43,7 @@ authRouter.post("/login", function (req, res) {
 
 
 authRouter.post("/signup", function (req, res) {
-    User.find({
-        username: req.body.username
-    }, function (err, existingUser) {
+    User.find({username: req.body.username}, function (err, existingUser) {
         if (err) return res.status(500).send(err);
         if (existingUser.length) return res.send({
             success: false,

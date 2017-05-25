@@ -20,16 +20,16 @@
                     <tr ng-hide="expense.editing">
                         <td>{{expense.name}}</td>
                         <td>{{expense.price | currency: "$"}}</td>
-                        <td><button ng-click="deleteExpense($index, expense._id)" class="btn btn-danger">Remove</button></td>
-                        <td><button ng-click="copyExpense(expense); expense.editing = !expense.editing" class="btn btn-warning">Edit</button></td>
+                        <td><button ng-click="deleteExpense($index, expense._id)" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+                        <td><button ng-click="copyExpense(expense); expense.editing = !expense.editing" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
                     </tr>
                     <tr ng-show="expense.editing">
                         <td><input ng-model="editedExpense.name"></td>
                         <td><input ng-model="editedExpense.price"></td>
-                        <td><button ng-click="deleteExpense($index, editedExpense._id)" class="btn btn-danger">Remove</button></td>
+                        <td><button ng-click="deleteExpense($index, editedExpense._id)" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
 
-                        <td><button ng-click="editExpense(editedExpense._id, editedExpense,  $index); expense.editing = !expense.editing" class="btn btn-success">save</button></td>
-                        <td><button ng-click="expense.editing = !expense.editing" class="btn btn-warning">cancel</button></td>
+                        <td><button ng-click="editExpense(editedExpense._id, editedExpense,  $index); expense.editing = !expense.editing" class="btn btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i></button></td>
+                        <td><button ng-click="expense.editing = !expense.editing" class="btn btn-warning"><i class="fa fa-times-circle" aria-hidden="true"></i></button></td>
                     </tr>
             </table>
         </div>

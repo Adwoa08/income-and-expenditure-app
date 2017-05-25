@@ -13,6 +13,8 @@ app.controller("budgetCtrl", ["$scope", "httpService", "detailService", "$locati
 
     //----------------CREATE------------------
     $scope.submitBudget = function (budget) {
+//        var savings = document.getElementById("savings").value;
+//        console.log(savings);
         var actualIncome = budget.income;
         budget.actualIncome = actualIncome;
         httpService.postBudget(budget).then(function(response){

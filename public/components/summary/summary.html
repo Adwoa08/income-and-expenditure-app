@@ -1,11 +1,11 @@
 <div class="home-wrapper">
     <div class="views-container">
-
+    <div class="container">
+        <h4 class="text-center">This is the summary to your budget and expenses!</h4>
+    </div>
         <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xs-offset-1 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 budget-form">
 
             <table class="table" ng-repeat="budget in monthlyBudget">
-<!--                <button class="btn btn-warning" ng-click="hidden= !hidden">Hide</button>-->
-<!--                <div ng-show="!hidden">-->
                     <thead>
                         <th class="budget-data">{{budget.month}}</th>
                         <th>Budget</th>
@@ -33,7 +33,6 @@
                             </tr>
                         </div>
                     </tbody>
-<!--                </div>-->
             </table>
         </div>
 

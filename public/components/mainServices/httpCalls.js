@@ -86,29 +86,7 @@ app.service("httpService", ["$http", function ($http) {
 
     
     
-    
-    
-
-    //    SUMMARY SECTION
-    //    this.getExpensesForBudget = function(id){
-    //        
-    //        return $http.get("/api/budget/" + id + "/items?key=price").then(function(response){
-    //            return response;
-    //            console.log(response);
-    //        })
-    //        
-    //    }
-    
-    
-    
-//USER CRUD REQUEST
-//        this.getUserInfo = function () {
-//            return $http.get('/api/user/profile').then(function (response) {
-//                return response.data
-//            });
-//        }
-
-        
+  
         this.getCurrentUser = function(){
             return $http.get('/api/user/profile').then(function(response){
                 return response.data;
