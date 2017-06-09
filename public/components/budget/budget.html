@@ -2,18 +2,27 @@
     <div class="views-container">
         <div>
             <form novalidate name="budgetForm" class="col-xs-10 col-sm-6 col-md-6 col-lg-6 col-xs-offset-1 col-sm-offset-3 col-md-offset-3 col-lg-offset-3 budget-form text-center form-group">
-                <input type="text" placeholder="Month" class="form-control" name="income" ng-model="budget.month" required>
-                <input type="number" placeholder="Income for the Month" class="form-control" name="income" ng-model="budget.income" required>
+                <div>
+                    <input type="text" placeholder="Month" class="form-control" name="month" ng-model="budget.month" required>
+                    <small ng-show="budgetForm.month.$touched && budgetForm.month.$invalid" style="color: red;">Enter a month.</small>
+                </div>
+                <div>
+                    <input type="number" placeholder="Income for the Month" class="form-control" name="income" ng-model="budget.income" required>
+                    <div ng-show="budgetForm.income.$touched && budgetForm.income.$invalid">
+                        <small style="color: red;">Enter an amount.</small>
+                    </div>
+                </div>
+
                 <input type="number" placeholder="Budgeted Expense for the Month" name="expenseBudget" class="form-control" ng-model="budget.expenseBudget" required>
 
                 <!--                <input type="number" placeholder="Budgeted Savings for the Month" name="expenseBudget" class="form-control" ng-model="budget.savings" required>-->
                 <div>
-                   <label class="pull-left" for="savings">Savings</label>
+                    <label class="pull-left" for="savings">Savings</label>
                     <input id="savings" type="number" name="expenseBudget" class="form-control" ng-model="budget.savings = budget.income - budget.expenseBudget">
                 </div>
 
 
-                <button class="text-center btn btn-primary" type="button" ng-click="submitBudget(budget)" ng-disabled="budgetForm.$invalid" id="budget-submit-btn">Submit</button>
+                <button class="text-center btn btn-primary" ng-click="submitBudget(budget)" ng-disabled="budgetForm.$invalid" id="budget-submit-btn">Submit</button>
             </form>
         </div>
 
