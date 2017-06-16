@@ -6,7 +6,12 @@ app.controller("loginController", ["$scope", "$location", "userService", functio
         userService.login(user).then(function (response) {
             $location.path("/home");
         }, function (response) {
-            alert(response.data.message);
+            swal({
+                title: "Unauthorized!",
+                text: response.data.message,
+                type: "error",
+                confirmButtonText: "Cool"
+            });
         });
     }
 }]);
